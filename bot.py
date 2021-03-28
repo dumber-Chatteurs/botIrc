@@ -26,7 +26,7 @@ SETVERSIONPLUS = "ICI METTEZ QUE VOTRE VERSION DU BOT"
 
 
 irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #defines the socket
-print "connecting to:"+SERVER
+print("connecting to:"+SERVER)
 irc.connect((SERVER, PORT))                                                         #connects to the server
 irc.send("USER "+ BOTIDENT +" "+ BOTHOST +" "+ SERVER +" :"+ REALNAME +"\n") #user authentication
 irc.send("NICK "+ BOTNICK +"\n")        
@@ -142,12 +142,12 @@ def case_QUIT(): #gestion des quitsafaire
         irc.send("PRIVMSG "+ BACKCHAN +" : "+ NICK +" Quit pour : "+ RAISON +" \n")
     
 def default():
-    print args
+    print(args)
 
 while 1:
     
     args = irc.recv(2040) 
-    print args   #ECHO EN CONSOLE
+    print(args)   #ECHO EN CONSOLE
     
     #Gestion du ping
     if args.find('PING') != -1:                         

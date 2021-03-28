@@ -1,3 +1,10 @@
+################################################
+# BASE DE BOT IRC PAR DUMBER POUR CHATTEURS.FR #
+# Code sans licence, seule demande, de laisser #
+# Ce commentaire dans tout bot contenant cette #
+# Base, et d'en concerver la version.          #
+################################################
+
 import socket
 import sys
 import re
@@ -14,6 +21,8 @@ REALNAME = "DMBER FAIT JOUJOU PYTHON"
 OMBNICK =  "Gizmo"
 OMBPASS = "PASS DU BOT"
 SETDEBUG = 1 #passer a 1 pour avoir les retour ur BACKCHAN
+SETVERSIONBASE = "Python BaseBot By dumber pour le reseau CHATTEURS.FR" #MERCI DE NE PAS CHANGER CETTE LIGNE
+SETVERSIONPLUS = "ICI METTEZ QUE VOTRE VERSION DU BOT"
 
 
 irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #defines the socket
@@ -84,15 +93,17 @@ def case_PRIVMSG(): #gestion des MSG
    
     else:  ##SI MSG EN PRIVE
         CMD = MSG.split()[0]
-        
+        #MERCI DE LAISSER CE CODE
+        if CMD == "VERSION": #NE PAS TOUCHER
+            irc.send("NOTICE "+ NICK +" :VERSION "+ SETVERSIONBASE +" . "+ SETVERSIONPLUS +"  \n")#NE PAS TOUCHER
         if SETDEBUG == 1:
             irc.send("PRIVMSG "+ BACKCHAN +" : "+ NICK +" me dit en prive " + CMD +" : "+ MSG +" \n")
 	
 def case_NICK(): #gestion des changements de pseudo
-	NICK = args.split('!')[0][1:]
-	NEWNICK = args.split() [2][1:]
-	if SETDEBUG == 1:
-            irc.send("PRIVMSG "+ BACKCHAN +" : "+ NICK +" change de pseudo en " + NEWNICK +" \n")
+    NICK = args.split('!')[0][1:]
+    NEWNICK = args.split() [2][1:]
+    if SETDEBUG == 1:
+        irc.send("PRIVMSG "+ BACKCHAN +" : "+ NICK +" change de pseudo en " + NEWNICK +" \n")
 	
 def case_JOIN(): #gestion des joins
     NICK = args.split('!')[0][1:]

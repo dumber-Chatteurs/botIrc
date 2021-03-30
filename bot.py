@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 ################################################
 # BASE DE BOT IRC PAR DUMBER POUR CHATTEURS.FR #
 # Code sans licence, seule demande, de laisser #
@@ -130,7 +132,7 @@ def case_KICK(): #gestion des kick
     VICTIME = args.split()[3]
     RAISON = " ".join(map(str, args.split()[4:]))[1:]
     if VICTIME == BOTNICK:
-        irc.send("PRIVMSG "+ BACKCHAN +" : Un sale aux trou ("+ NICK +") m'a exclu de "+ CHAN +" pour "+ RAISON +". J'y retourne de ce pas \n")
+        irc.send("PRIVMSG "+ BACKCHAN +" : Un sale aux trou ("+ NICK +") m'a éxclu de "+ CHAN +" pour "+ RAISON +". J'y retourne de ce pas \n")
         irc.send("JOIN "+ CHAN +" \n")
     if SETDEBUG == 1:
         irc.send("PRIVMSG "+ BACKCHAN +" : "+ VICTIME +" Exclus de "+ CHAN +" par "+ NICK +" pour "+ RAISON +" \n")

@@ -191,4 +191,3 @@ while 1:
         'QUIT': case_QUIT,
         'else': default
     })
-

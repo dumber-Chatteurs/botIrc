@@ -21,8 +21,8 @@ BOTHOST = "127.0.0.1"
 BOTIDENT = "bot-GIZPI"
 REALNAME = "DMBER FAIT JOUJOU PYTHON"
 OMBNICK =  "Gizmo"
-OMBPASS = "PASS DU BOT"
-SETDEBUG = 1 #passer a 1 pour avoir les retour ur BACKCHAN
+OMBPASS = ""
+SETDEBUG = 0 #passer a 1 pour avoir les retour ur BACKCHAN
 SETVERSIONBASE = "Python BaseBot By dumber pour le reseau CHATTEURS.FR" #MERCI DE NE PAS CHANGER CETTE LIGNE
 SETVERSIONPLUS = "ICI METTEZ QUE VOTRE VERSION DU BOT"
 
@@ -89,6 +89,26 @@ def case_PRIVMSG(): #gestion des MSG
        
         if CMD == "!test":
 			irc.send("PRIVMSG "+ CHAN +" :4,8BIIIIIP  BIPPPPPP BIPPPPP HOLEEEEEE "+ NICK +"\n")
+
+        if CMD == "!op":
+            if NICK == "dumber":
+                irc.send("MODE "+ CHAN +" +o "+ NICK +"\n")
+
+        if CMD == "!voice":
+            if NICK == "dumber":
+                if "MSG.split()[1]" in locals():
+                    VICTIME = NICK
+                else:
+                    VICTIME = MSG.split()[1]
+                irc.send("MODE "+ CHAN +" +v "+ VICTIME +"\n")
+        
+        if CMD == "!devoice":
+            if NICK == "dumber":
+                if "MSG.split()[1]" in locals():
+                    VICTIME = NICK
+                else:
+                    VICTIME = MSG.split()[1]
+                irc.send("MODE "+ CHAN +" -v "+ VICTIME +"\n")        
        
         if SETDEBUG == 1:
             irc.send("PRIVMSG "+ BACKCHAN +" : "+ NICK +" dit sur " + CHAN +" : "+ MSG +" \n")

@@ -13,7 +13,7 @@ LYCENCE CCBY
     Droit à l'utilisation non Commerciale
     droit à l'utilisation Commerciale
     droit à la creation d'oeuvres derivées
-    Obligation de memtionner le nom de l'auteur (Primaire (dumer), et de chaque modification)
+    Obligation de memtionner le nom de l'auteur (Primaire (dumber), et de chaque modification)
 
 Lancement :
     Python bot.py
